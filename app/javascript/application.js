@@ -2,6 +2,7 @@
 import '@hotwired/turbo-rails';
 import 'controllers';
 import '@fortawesome/fontawesome-free';
-import 'tw-elements';
+import 'tw-elements/dist/plugin';
+
 import Pagy from 'pagy-module';
 window.addEventListener('turbo:load', Pagy.init);
