@@ -87,6 +87,7 @@ test:
 #
 production:
   <<: *default
-  database: bitcoin_ror_production
-  username: bitcoin_ror
-  password: <%= ENV["BITCOIN_ROR_DATABASE_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
