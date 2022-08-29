@@ -19,6 +19,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
 
-    require('tw-elements/dist/plugin'),
+    require('tw-elements'),
   ],
 };
