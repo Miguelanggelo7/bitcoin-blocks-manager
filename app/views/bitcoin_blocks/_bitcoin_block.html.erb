@@ -1,0 +1,58 @@
+  <div id="<%= dom_id block %>" class="accordion-item border-t-0 border-l-0 border-r-0  rounded-none bg-white border border-gray-200">
+    <h2 class="accordion-header mb-0 text-ellipsis overflow-hidden whitespace-nowrap" id="heading<%= block.id %>" >
+    <button type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#collapse<%= block.id %>" 
+      aria-expanded="false"
+      aria-controls="collapse<%= block.id %>"
+      class="accordion-button
+          relative
+          flex
+          items-center
+          w-full
+          py-4
+          px-5
+          text-base text-gray-800 text-left
+          bg-white
+          border-0
+          rounded-none
+          transition
+          focus:outline-none
+          collapsed"
+    >
+      <p class="mr-2"><%= block.hash_id %></p>
+    </button>
+    </h2>
+    <div id="collapse<%= block.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= block.id %>">
+      <div class="accordion-body py-4 px-5">
+        <div>
+          <div class="flex">
+            <h3 class="font-medium mr-2">Hash:</h3>
+            <p class="text-ellipsis overflow-hidden whitespace-nowrap">"<%= block.hash_id %>"</p>
+          </div>
+          <div class="flex">
+            <h3 class="font-medium mr-2">Prev_block:</h3>
+            <p class="text-ellipsis overflow-hidden whitespace-nowrap">"<%= block.prev_block %>"</p>
+          </div>
+          <div class="flex">
+            <h3 class="font-medium mr-2">Block_index:</h3>
+            <p class="text-ellipsis overflow-hidden whitespace-nowrap"><%= block.block_index %></p>
+          </div>
+          <div class="flex">
+            <h3 class="font-medium mr-2">Time:</h3>
+            <p class="text-ellipsis overflow-hidden whitespace-nowrap"><%= block.time %></p>
+          </div>
+          <div class="flex">
+            <h3 class="font-medium mr-2">Bits:</h3>
+            <p class="text-ellipsis overflow-hidden whitespace-nowrap"><%= block.bits %></p>
+          </div>
+        </div>
+        <%=  link_to "Delete", destroy_bitcoin_block_path(block), class: 'inline-block px-6 py-3 bg-red-600 text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out', data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    </div>
+    
+  </div>
+  
+
+<%# show rest of block in turbo_stream_tag %>
+

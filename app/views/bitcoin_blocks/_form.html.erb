@@ -1,0 +1,13 @@
+
+<%= form_with model: @bitcoin_blocks, html: {novalidate: true}, data: {controller: 'bitcoin_blocks'} do |form| %>
+
+  <div class="flex">
+    <%= form.text_field :hash, placeholder: 'Your hash here', class: 'w-full  text-ellipsis overflow-hidden whitespace-nowrap', required: true, data: {target: 'bitcoin_blocks.hash'} %>
+    <%= form.button 'Add', id: "button_id", class: "inline-block px-6 py-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out", data: {target: 'bitcoin_blocks.btn', action: 'bitcoin_blocks#add'} %>
+  </div>
+  
+  <div data-target="bitcoin_blocks.error">
+    <%= turbo_frame_tag "flashs" do%>
+    <% end %>
+  </div>
+<% end %>

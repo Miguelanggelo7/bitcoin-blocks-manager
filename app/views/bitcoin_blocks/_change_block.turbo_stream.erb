@@ -1,0 +1,29 @@
+<%= turbo_stream.update "flashs" do %>
+  <div>
+    <%= render partial: 'shared/success_alert', locals: {message: notice} %>
+  </div>
+<% end %>
+<% if creating %>
+  <% if BitcoinBlock.count == 1 %>
+    <%= turbo_stream.update "blocks" do %>
+      <%= render partial: "bitcoin_blocks/bitcoin_block", locals: {block: block} %>
+    <% end %>
+  <% else %>
+    <%= turbo_stream.prepend "blocks" do %>
+      <%= render partial: "bitcoin_blocks/bitcoin_block", locals: {block: block} %>
+    <% end %>
+  <% end %>
+  
+
+<% else %>
+
+  <%= turbo_stream.remove dom_id(block) %>
+  <% if BitcoinBlock.count == 0 %>
+    <%= turbo_stream.prepend "blocks" do %>
+      <div>
+        <p>No HAY NADA</p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+

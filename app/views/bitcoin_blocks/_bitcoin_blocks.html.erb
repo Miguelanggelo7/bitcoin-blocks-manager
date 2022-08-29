@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "blocks" do %>
+  <div class="accordion w-full">
+    <% @blocks.each do |block| %>
+      <%=  render partial:'bitcoin_block', locals: {block: block} %>
+    <% end %>
+  </div>
+<% end %>
